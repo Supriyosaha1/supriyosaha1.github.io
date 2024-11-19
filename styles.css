@@ -1,12 +1,18 @@
 /* General Styles */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    scroll-behavior: smooth; /* Smooth scrolling for the page */
+}
+
+/* Header and Navigation */
 header {
     background: #333;
     color: #fff;
@@ -15,6 +21,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
 }
 
 header nav {
@@ -35,25 +42,29 @@ header nav a:hover {
     background: #555;
 }
 
-/* Hero Section */
+/* Hero Section (Background image, Name Overlay) */
 .hero {
-    padding: 50px 20px;
-    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    padding: 100px 20px; /* Adjusting padding to ensure the text is well spaced */
+    background: url('your-image.jpg') center/cover no-repeat; /* Set the background image */
     color: white;
     text-align: center;
+    position: relative;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin: 0;
+    z-index: 10;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    z-index: 10;
 }
 
 /* Section Styles */
 .section {
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 
@@ -127,4 +138,19 @@ footer {
     padding: 10px 0;
     background: #333;
     color: #fff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .slideshow {
+        width: 90%;
+    }
 }
