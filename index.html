@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Supriyo Saha</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supriyo Saha - Research Scholar</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Supriyo Saha's Website!</h1>
-    <p>This is a free website hosted on GitHub Pages.</p>
+    <header>
+        <div class="hero">
+            <h1>Supriyo Saha</h1>
+            <p>A Research Scholar in TIFR</p>
+        </div>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Hello! I am Supriyo Saha, a research scholar at TIFR. I am passionate about advancing scientific knowledge and exploring new realms of cosmology.</p>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="slideshow">
+            <img src="image1.jpeg" alt="Image 1" class="active">
+            <img src="image2.jpeg" alt="Image 2">
+            <img src="image3.jpeg" alt="Image 3">
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Supriyo Saha</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
