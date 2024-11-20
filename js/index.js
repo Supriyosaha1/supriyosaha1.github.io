@@ -116,8 +116,8 @@ gsap.to('#contact',0,{display:"block",delay:.7});
 gsap.to('#navigation-content',0,{display:'flex',delay:2});
 })
 $('#portfolio-link').on('click',function(){
-  gsap.to('#navigation-content',0,{display:"none",delay:.7});
-  gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
+  gsap.to('#navigation-content',0,{display:"none",delay:.5});
+  gsap.to('#navigation-content',0,{y:'-100%',delay:.5});
 gsap.to('#header',0,{display:"none"});
 gsap.to('#about',0,{display:"none"});
 gsap.to('#contact',0,{display:"none"});
