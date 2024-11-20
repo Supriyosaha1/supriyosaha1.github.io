@@ -494,6 +494,13 @@ body{
     padding-right: 50px;
     flex-direction: row;
 }
+.about-i img {
+    width: 100%; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 300px; /* Optional: set a maximum width */
+    border-radius: 40px;
+}
+
 .about-img img{
     width: 100%;
     height:380px;
