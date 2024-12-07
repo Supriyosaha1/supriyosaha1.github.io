@@ -963,26 +963,28 @@ padding-bottom: 40px;
     width: 100%;
     height: auto;
 }
-.blog-content{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+.blog-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 60px; /* Spacing between gallery items */
+    padding: 10px;
+    box-sizing: border-box;
 }
-.blogs{
-    height: 420px;
-    width: 40%;
-    margin: 20px;
+.blogs {
+    height: 370px;
+    width: 100%;
     border-radius: 8px;
     position: relative;
     overflow: hidden;
+    background: #1a1a1a;
+    transition: transform 0.3s ease;
 }
-.blogs .img{
-    height: 80%;
+.blogs .img {
+    height: 60%;
     width: 100%;
     overflow: hidden;
-    transition: all .65s ease;
     position: relative;
+    transition: all 0.65s ease;
 }
 .blog-date{
     position: absolute;
@@ -999,10 +1001,11 @@ padding-bottom: 40px;
     width: 25%;
     height: auto;
 }
-.blogs .img img{
+.blogs .img img {
     height: 100%;
     width: 100%;
-    transition: all .65s ease;
+    object-fit: cover; /* Ensures images fill their containers properly */
+    transition: all 0.65s ease;
 }
 .blog-text{
   height: 80%;
