@@ -1046,27 +1046,29 @@ padding-bottom: 40px;
 /* Responsive Styling for Mobile */
 @media (max-width: 768px) {
     .blog-content {
-        grid-template-columns: 1 fr; /* Single column on small screens */
-        gap: 20px;
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 15px; /* Reduced gap */
     }
 
     .blogs {
-        height: 100px ; /* Adjust height dynamically */
+        height: auto; /* Adjust height dynamically */
     }
 
     .blogs .img {
-        height: 100px; /* Fixed height for images */
+        height: 150px; /* Smaller height for images */
     }
 
     .blog-text h3 {
-        font-size: 20px;
+        font-size: 18px; /* Smaller title font size */
     }
 
     .blog-text p {
-        font-size: 14px;
-        padding: 15px;
+        font-size: 12px; /* Smaller paragraph font size */
+        padding: 10px;
     }
 }
+
+
 
 
 #contact{
