@@ -1042,6 +1042,33 @@ padding-bottom: 40px;
     text-decoration: none;
     color: whitesmoke;
 }
+
+/* Responsive Styling for Mobile */
+@media (max-width: 768px) {
+    .blog-content {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 20px;
+    }
+
+    .blogs {
+        height: auto; /* Adjust height dynamically */
+    }
+
+    .blogs .img {
+        height: 200px; /* Fixed height for images */
+    }
+
+    .blog-text h3 {
+        font-size: 20px;
+    }
+
+    .blog-text p {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+
 #contact{
     display: none;
     height: auto;
