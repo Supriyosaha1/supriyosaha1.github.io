@@ -1046,16 +1046,16 @@ padding-bottom: 40px;
 /* Responsive Styling for Mobile */
 @media (max-width: 768px) {
     .blog-content {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: 1 fr; /* Single column on small screens */
         gap: 20px;
     }
 
     .blogs {
-        height: auto; /* Adjust height dynamically */
+        height: 100px ; /* Adjust height dynamically */
     }
 
     .blogs .img {
-        height: 200px; /* Fixed height for images */
+        height: 100px; /* Fixed height for images */
     }
 
     .blog-text h3 {
