@@ -303,13 +303,7 @@
                     </div>
                 </div>
             </div>
-    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-             <div class="footer-text">
-                 <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> supriyo saha
-             </div>
-            </div>
-    <!--copyright-section-->
+    
         </div>
         <!--about end-->
         <!--portfolio-->
@@ -395,13 +389,7 @@
                 </div>
                  </div>
         -->
-                    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> supriyo saha
-                </div>
-               </div>
-       <!--copyright-section-->
+                    
              </div>
         <!--portfolio end-->
         
@@ -560,14 +548,7 @@
                 </div>        
             </div>
         -->
-               <!--copyright-section You Can Remove After Downloading-->
-               <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> supriyo saha
-                </div>
-               </div>
-       
-       <!--copyright-section-->
+              
         </div>
         <!--blog end-->
 
@@ -609,21 +590,66 @@
             <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div></div>
             <div class="contact-content">
                 <!--Contact form-->
-                 <div class="contact-form">
-                     <div class="form-header">
-                         Message Me
-                     </div>
-                     <form id="myForm" action="#">
+                <!--Contact form-->
+                <div class="contact-form">
+                    <div class="form-header">
+                        Message Me
+                    </div>
+                    <form id="myForm" action="/sendMail" method="POST">
                         <div class="input-line">
-                            <input  id="name" type="text" placeholder="Name" class="input-name">
-                            <input id="email" type="email" placeholder="Email"  class="input-name">
+                            <input id="name" name="name" type="text" placeholder="Name" class="input-name" required>
+                            <input id="email" name="email" type="email" placeholder="Email" class="input-name" required>
                         </div>
-                        <input type="text" id="subject" placeholder="subject" class="input-subject">
-                        <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                        <button type="button" id ="submit" value="send">Submit</button>
-                     </form>
-                   
-                 </div>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" class="input-subject" required>
+                        <textarea id="body" name="message" class="input-textarea" placeholder="Message" required></textarea>
+                        <button type="submit" id="submit">Submit</button>
+                        <div id="loading" style="display:none; margin-top:10px;">Sending...</div> <!-- Loading indicator -->
+                    </form>
+                    <script>
+                        document.getElementById("myForm").addEventListener("submit", async (e) => {
+                            e.preventDefault();
+
+                            const submitButton = document.getElementById("submit");
+                            const loadingIndicator = document.getElementById("loading");
+
+                            // Show loading animation
+                            submitButton.disabled = true; // Disable the button
+                            loadingIndicator.style.display = 'block';
+
+                            const name = document.getElementById("name").value;
+                            const email = document.getElementById("email").value;
+                            const subject = document.getElementById("subject").value;
+                            const body = document.getElementById("body").value;
+
+                            try {
+                                const response = await fetch('http://localhost:3000/send', {
+                                    method: "POST",
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ name, email, subject, message: body }),
+                                });
+
+                                const result = await response.json();
+
+                                if (response.ok) {
+                                    alert("Message sent successfully!");
+                                    // Optionally clear the form
+                                    document.getElementById("myForm").reset();
+                                } else {
+                                    alert("Failed to send message. Please try again.");
+                                }
+                            } catch (error) {
+                                console.error("Error:", error);
+                                alert("An error occurred. Please try again.");
+                            } finally {
+                                // Reset UI
+                                submitButton.disabled = false;
+                                loadingIndicator.style.display = 'none';
+                            }
+                        });
+                    </script>
+                </div>
                 <!--Contact form-->
                 <!--Contact information-->
                  <div class="contact-info">
@@ -664,13 +690,7 @@
                 <!--Contact information end-->
                </div>
             </div>
-                        <!--copyright-section You Can Remove After Downloading-->
-                        <div class="footer">
-                            <div class="footer-text">
-                                <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> supriyo saha
-                            </div>
-                           </div>
-                   <!--copyright-section-->
+                        
          </div>
             <!--contact end-->
 
@@ -797,13 +817,7 @@
                     </div>  
                     -->   
                 </div>
-                   <!--copyright-section You Can Remove After Downloading-->
-                   <div class="footer">
-                    <div class="footer-text">
-                        <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> supriyo saha
-                    </div>
-                   </div>
-           <!--copyright-section-->
+                   
             </div>
             <!--gallery end-->
 
