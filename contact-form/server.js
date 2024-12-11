@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config(); // Load environment variables securely
 
 const app = express();
-const port = 5000; // Port number for server to listen on
+const port = 3000; // Port number for server to listen on
 
 // Middleware
 app.use(bodyParser.json());
