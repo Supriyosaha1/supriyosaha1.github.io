@@ -128,6 +128,14 @@ a:hover, #header.nav-solid nav a:hover {
     background-size:cover;
 }
 
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+    #banner {
+        background-size: contain; /* Ensures the whole image is visible */
+        background-position: center top; /* Adjust the positioning for smaller screens */
+    }
+}
+
 
 /*------------------------------------------------------------------------------------------*/
 /* 5. Typography */
