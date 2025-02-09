@@ -1,841 +1,663 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="supriyo saha - Personal Portfolio Website Template" />
-	<meta name="keywords" content="blog, business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
-	<meta name="author" content="willy wonka" />
-    <title>supriyo saha - Personal Portfolio Website Template</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/favicon.png">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+
+    <!--Page Title-->
+    <title>Supriyo Saha</title>
+
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
+
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Namari Color CSS -->
+    <link rel="stylesheet" href="css/namari-color.css">
+
+    <!--Icon Fonts - Font Awesome Icons-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Animate CSS-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Include jQuery -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Featherlight CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/featherlight@1.7.13/release/featherlight.min.css">
+
+    <!-- Include Featherlight JS -->
+    <script src="https://cdn.jsdelivr.net/npm/featherlight@1.7.13/release/featherlight.min.js"></script>
+
+    <style>
+        /* Your CSS goes here */
+        #research {
+            background-image: url('gallery/images/bigbang.jpg');
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 5px 0;
+            color: #fff;
+        }
+    </style>
+
 </head>
 <body>
-    <!--contains all the div-->
-    <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-        <div id="loader">
-            <span class="color">Supriyo</span> Saha 
-        </div>
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/willy wonka logo.png" alt="logo">
-            </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
-            </div>
-            <div class="navigation-links">
-                <a href="#" data-text="HOME" id="home-link" >HOME</a>
-                <a href="#" data-text="ABOUT" id="about-link" >ABOUT</a>
-                <a href="#" data-text="BLOG" id="blog-link" >BLOG</a>
-                <a href="#" data-text="PORTFOLIO" id="portfolio-link" >PORTFOLIO</a>
-                <a href="#contact" data-text="CONTACT" id="contact-link" >CONTACT</a>
-                
-            </div>
-        </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-            <img src="images/willy wonka logo.png" alt="logo">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </div>
-        <!--Menubar End-->
-          <!--Header-->
-        <div id="header">
-            <div id="particles"></div>
-              <!--Social Media Links-->
-            <div class="social-media-links">
-               <a href="https://www.instagram.com/_stellar_saha/"><img src="images/instagram logo.png" class="social-media" alt="instagram-logo"></a><!--Your instagram homepage link inser in place of "#"-->
-                <a href="https://www.facebook.com/profile.php?id=100091809229299"><img src="images/facebook logo.png" class="social-media" alt="facebook-logo"></a>
-                <a href="https://www.linkedin.com/in/supriyosaha1"><img src="images/linkedin logo.png" class="social-media" alt="linkedin-logo"></a>
-                <a href="#"><img src="images/twitter logo.png" class="social-media" alt="twitter-logo"></a>
-                <a href="https://github.com/Supriyosaha1"><img src="images/github.png" class="social-media" alt="twitter-logo"></a>
-            </div>
-            <!--Social Media Links end-->
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">Supriyo </span>Saha</div>
-                <div class="secondline">
-                I'm a
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Researcher.", " Content Creator.", "Tech-Savvy ." ]'></span>
-            <span class="slash">|</span>
-        </div>
-                    <div class="contact">
-                <a href="Mailto:supriyo.saha@tifr.res.in"><img src="images/mail.png" alt="email-pic" class="contactpic"></a><!--Your email Id write in place of "#"-->
-                <a href="Tel:#"><img src="images/call.png" alt="phone-pic" class="contactpic"></a><!--Your telephone number Id write in place of "#"-->
-                    </div>    
-            </div>
-            </div>
-            <!--header image-->
-            <div class="header-image">
-            <img src="images/prof_pic_2.jpeg" alt="logo">
-            </div>
-            <!--header image end-->
-        </div>
-           <!--Header End-->
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
-            </div>
-            <div class="color-selector">
-                <div class="heading">Custom Colors</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <!--about content-->
-            <div id="about-content">
-                <div class="about-header">
-                    About <span class="color">Me</span>
-                    <span class ="header-caption">Get to Know <span class="color"> me.</span></span>
-                </div>
-                <div class="about-main">
-            <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    I'm a 
-                    <span class="color"> a research scholar at TIFR</span>
-                    with a deep interest in cosmology and General Relativity </span>
-                     <br>
-               <span class="about-second-line"> My current research focuses on gravitational lensing, specifically using data from the Dark Energy Survey to better understand the universe's structure. 
-                Alongside my research in  physics </span>
-                <span class="about-second-line">Outside of my academic work, I enjoy engaging in creative and recreational activities. I am passionate about content creation under the handle @50_shades_of_science, where I share insights on science in an accessible way.
-                 In addition, I play mouth organ . I  love to play  cricket. </span>
-                 
-                   
-                 
-                
-                
-                <div class="cv">
-                <a href="pdf/CV_supriyo.pdf"><button>Download <span class="colors">CV</span></button></a>
-            </div>
-            
-              
-            </div>
-            <!--about picture-->
-            <div class="about-img">
-                <img src="images/about.jpeg" alt="Your Image">
-            </div>
-            </div>
-            </div>
-            <!--services start-->
-            <div id="services">
-                <div class="color-changer">
-                    <div class="color-panel">
-                        <img src="images/gear.png" alt="">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status" class="la-ball-triangle-path">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!--End of Preloader-->
+
+<div class="page-border" data-wow-duration="0.7s" data-wow-delay="0.2s">
+    <div class="top-border wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;"></div>
+    <div class="right-border wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;"></div>
+    <div class="bottom-border wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"></div>
+    <div class="left-border wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"></div>
+</div>
+
+
+
+
+<div id="wrapper">
+
+    <header id="banner" class="scrollto clearfix" data-enllax-ratio=".5">
+        <div id="header" class="nav-collapse">
+            <div class="row clearfix">
+                <div class="col-1">
+
+                    <!--Logo-->
+                    <div id="logo">
+
+                        <!--Logo that is shown on the banner-->
+                        <img src="images/LOGO22.png" id="banner-logo" alt="Landing Page"/>
+                        <!--End of Banner Logo-->
+
+                        <!--The Logo that is shown on the sticky Navigation Bar-->
+                        <img src="images/LOGO22.png" id="navigation-logo" alt="Landing Page"/>
+                        <!--End of Navigation Logo-->
+
                     </div>
-                    <div class="color-selector">
-                        <div class="heading">Custom Colors</div>
-                        <div class="colors">
-                            <ul >
+                    <!--End of Logo-->
+
+                    <aside>
+
+                        <!--Social Icons in Header-->
+                        <ul class="social-icons">
                             <li>
-                                <a href="#0" class="color-red " title="color-red"></a>
+                                <a target="_blank" title="Facebook" href="https://www.facebook.com/spriyosaha">
+                                    <i class="fa fa-facebook fa-1x"></i><span>Facebook</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
+                                <a target="_blank" title="GitHub" href="https://github.com/Supriyosaha1">
+                                    <i class="fa fa-github fa-1x"></i><span>GitHub</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/supriyosaha1">
+                                    <i class="fa fa-linkedin fa-1x"></i><span>LinkedIn</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a target="_blank" title="Instagram" href="https://www.instagram.com/_stellar_saha">
+                                    <i class="fa fa-instagram fa-1x"></i><span>Instagram</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
+                                <a target="_blank" title="Email" href="mailto:supriyo.saha@tifr.res.in">
+                                    <i class="fa fa-envelope fa-1x"></i><span>Email</span>
+                                </a>
                             </li>
                             <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
+                                <a title="Call" href="facetime:+91******8988">
+                                    <i class="fa fa-phone fa-1x"></i><span>Call</span>
+                                </a>
                             </li>
-                            <li>
-                                <a href="#0" class="color-blue" title="color-blue"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-orange" title="color-orange"></a>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-            <!--services header-->
-                    <div class="services-heading wow">
-                        <span class="color">My</span> Services
-                    </div>
-            <!--services header end-->
-            <!--services content-->
-                    <div class="services-content">
-                           <div class="service-one service wow">
-                               <div class="service-img">
-                               <img src="images/coding.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>Web Designing</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                               </div>
-                           </div>
-                           <div class="service-two service wow">
-                               <div class="service-img">
-                               <img src="images/instagram.png" alt="service-two">
-                               </div>
-                               <div class="service-description">
-                                <h2>Social Media</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                               </div>
-                           </div>
-                           <div class="service-three service wow">
-                            <div class="service-img">
-                               <img src="images/bulb.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Creative Design</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <!--services content end-->
-            <!--services end-->
-            <div id="skills">
-                <div class="skills-header">
-                     My <span class="color"> Skills</span>
-                </div>
-                <div class="skills-content " style="text-align: center;">
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        HTML/CSS
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="html-progress wow">95%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                      Video Editing
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="js-progress wow">90%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Python
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="adobe-progress wow">83%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Machine Learning
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="php-progress wow">50%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Mathematica
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="jquery-progress wow">94%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        C
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="seo-progress wow">84%</div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-    
-        </div>
-        <!--about end-->
-        <!--portfolio-->
-        <div id="portfolio">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
+                            
+                            
                         </ul>
-                    </div>
-                </div>
-                </div>
-            <div class="portfolio-header"> <span class="color"> My </span> Portfolio
-            <span class ="header-caption"> Some Of My <span class="color"> Projects</span></span></div>
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/HARD.jpg" alt="portfolio-first">
-                     </div>
-                     <div class="portfolio-text">
-                         <h2>Arduino Project </h2>
-                         <p>2 Way Traffice navigation system 
-                            using Arduino Uno</p>
-                         <div class="button"><a href="html/project-detais.html"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                     </div>
-                 </div>
-        <!--
-                 <div class="portfolio portfolio-second">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-second.jpg" alt="portfolio-second">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Web Designing</h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id cumque placeat minima ad laudantium suscipit
-                             voluptatem ducimus. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-             
-                <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>UI Designing</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate expedita eius dignissimos
-                            .. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                <div class="portfolio portfolio-fourth">
-                    <div class=" portfolio-image">
-                        <img src="images/portfolio-fourth.jpg" alt="portfolio-fourth">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Wow Graphics</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                 </div>
-        -->
-                    
-             </div>
-        <!--portfolio end-->
-        
-        <div id="blog">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
+                        <!--End of Social Icons in Header-->
+                        
+                        
+
+                    </aside>
+
+                    <!--Main Navigation-->
+                    <nav id="nav-main">
                         <ul>
                             <li>
-                                <a href="#0" class="color-red" title="color-red"></a>
+                                <a href="#banner">Home</a>
                             </li>
                             <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
+                                <a href="#about">About</a>
                             </li>
                             <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
+                                <a href="#research">Research Area</a>
                             </li>
                             <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
+                                <a href="#testimonials">Projects</a>
                             </li>
+                            <li>
+                                <a href="#clients">GALLERY</a>
+                            </li>
+                            
+                            
+                            
+                            <li>
+                                <a href="#pricing">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--End of Main Navigation-->
+
+                    <div id="nav-trigger"><span></span></div>
+                    <nav id="nav-mobile"></nav>
+
+                </div>
+            </div>
+        </div><!--End of Header-->
+
+        <!--Banner Content-->
+        <div id="banner-content" class="row clearfix">
+
+            <div class="col-38">
+
+                <div class="section-heading">
+                    <h1>SUPRIYO SAHA</h1>
+        
+                        <h2>
+                            Life is a constant adventure—always learning, exploring, and growing. 
+                            I believe in embracing every moment and finding beauty in the simplest things.
+                        </h2>
+                         <br>
+                         <blockquote class="testimonial text-right bigtest">
+                            <q>Two things are infinite: the universe and human stupidity; and I'm not sure about the universe. 
+                                There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.</q>
+                            <footer>— Albert Einstein</footer>
+                        </blockquote>
+                   
+                </div>
+
+                <!--Call to Action-->
+                <a href="pdf/CV_supriyo.pdf" class="button">CV</a>
+                <!--End Call to Action-->
+
+            </div>
+
+        </div><!--End of Row-->
+    </header>
+
+    <!--Main Content Area-->
+    <main id="content">
+
+        <!--Introduction-->
+        <section id="about" class="introduction scrollto">
+
+            <div class="row clearfix">
+
+
+                <div class="col-3">
+                    <div class="section-heading">
+                        <h3>About Me</h3>
+                        <h2 class="section-title">Supriyo Saha</h2>
+                        <p>
+                            I am a research scholar at Tata Institute of Fundamental Research (TIFR), specializing in 
+                            cosmology . My current research focuses on <strong>gravitational lensing</strong> 
+                            using data from the <strong>Dark Energy Survey</strong> to study the universe’s large-scale structure.
+                        </p>
+                        <p>
+                            Alongside my research, I am passionate about science communication and content creation. 
+                            I run <strong>@50_shades_of_science</strong>, where I simplify complex scientific concepts 
+                            for a broader audience. Outside of academics, I enjoy playing the <strong>mouth organ</strong> 
+                            and I love to play <strong>cricket</strong> matches.
+                        </p>
+                    </div>
+                </div>
+        
+                <!-- Educational Background -->
+                <div class="col-3">
+                    <div class="section-heading">
+                        <h3>Educational Background</h3>
+                        <ul>
+                            <li><strong>Int Ph.D. (Ongoing)</strong> - TIFR Mumbai (2023 -)</li>
+                
+                            <li><strong>Bachelor's Degree</strong> - Asutosh College, University of Calcutta (2020-2023)</li>
+                            <li><strong>Schooling</strong> - Koshigram Union Institution(H.S)</li>
+                        </ul>
+                        <h3 style="margin-top: 40px;">Academic Achievements</h3>
+
+                        <ul>
+                            <li><strong>Inspire Scholar </strong>2020</li>
+                            <li><strong><a href="https://youtu.be/glnAd1Q4Nck?si=9r0SoMCuZoIsI4-i" target="_blank">IIT-JAM 2023</a></strong>: AIR 21</li>
+
+                            <li><strong>JEST 2023  (Physics)</strong>: AIR 48</li>
+                            
+                            <li><strong>DUET 2022</strong>: AIR 12 </li>
+                        </ul>
+
+                        <h3 style="margin-top: 40px;">Selected Interviews</h3>
+                        <ul>
+                            <li><strong>Selected for M.Sc Physics</strong> - IIT Bombay</li>
+                            <li><strong>Successfully passed interviews and selected</strong> - IMSC, HRI,TIFR</li>
                         </ul>
                     </div>
                 </div>
+        
+        
+                
+
+
+                <div class="col-3">
+                    <img src="images/dancer.jpg" alt="Dancer"/>
+                </div>
+
+            </div>
+
+
+        </section>
+        <!--End of Introduction-->
+
+
+
+
+
+
+
+
+       
+
+
+        <!--Content Section-->
+<!--Content Section-->
+<div id="research" class="scrollto clearfix">
+
+    <div class="row no-padding-bottom clearfix">
+
+        <!--Content Left Side-->
+        <div class="col-3">
+            
+            <div class="section-heading">
+                <h2 class="section-title">What is Cosmology?</h2>
+                <p>
+                    Cosmology is the study of the universe, including its origin, structure, evolution, and eventual fate. It covers everything from the smallest particles to the largest cosmic structures. The universe began with the <strong>Big Bang</strong> about <strong>13.8 billion years ago</strong> and has been expanding ever since.
+                </p>
+
+                <h2 class="section-title">The Evolution of the Universe</h2>
+                <ul>
+                    <li><strong>0 seconds:</strong> The Big Bang - space, time, and matter begin.</li>
+                    <li><strong>10⁻³⁶ seconds:</strong> Cosmic Inflation - the universe expands exponentially.</li>
+                    <li><strong>10⁻⁶ seconds:</strong> Formation of protons and neutrons.</li>
+                    <li><strong>380,000 years:</strong> Recombination - atoms form, and the universe becomes transparent (CMB forms).</li>
+                    <li><strong>200 million years:</strong> First stars and galaxies form.</li>
+                    <li><strong>9 billion years:</strong> The solar system forms.</li>
+                    <li><strong>13.8 billion years:</strong> Present-day universe with galaxies, dark matter, and dark energy.</li>
+                </ul>
+
+                <p class="section-subtitle">
+                    Today, cosmologists study dark matter, dark energy, and the large-scale structure of the universe to understand its future evolution.
+                </p>
+                
+                <h2 class="section-title">Key Components of the Universe</h2>
+                <p>
+                    The universe is composed of several key components, including:
+                </p>
+                <ul>
+                    <li><strong>Ordinary Matter:</strong> The visible matter that makes up stars, planets, and living organisms.</li>
+                    <li><strong>Dark Matter:</strong> A mysterious form of matter that does not emit light but has gravitational effects on visible matter.</li>
+                    <li><strong>Dark Energy:</strong> A form of energy responsible for the accelerated expansion of the universe.</li>
+                    <li><strong>Cosmic Microwave Background (CMB):</strong> The afterglow of the Big Bang, providing a snapshot of the universe when it was only 380,000 years old.</li>
+                </ul>
+
+            </div>
+        </div>
+        <!--End Content Left Side-->
+
+        <!--Content of the Right Side-->
+        <div class="col-3">
+            <div class="section-heading" style="margin-bottom: 150px;"> <!-- Added margin-bottom -->
+                <h2 class="section-title">My Research Field - COSMOLOGY</h2>
+                <p>As a cosmologist, my research spans multiple areas within this vast field. Below are some of the topics I am exploring:</p>
+                <ul>
+                    <li><strong>Cosmic Inflation:</strong> Studying the rapid expansion of the universe in the first moments after the Big Bang.</li>
+                    <li><strong>Gravitational Lensing:</strong> Investigating how massive objects bend light and can be used to map dark matter and study distant galaxies.</li>
+                    <li><strong>Dark Matter and Dark Energy:</strong> Understanding the invisible components of the universe that make up most of its mass-energy content.</li>
+                    <li><strong>Large-Scale Structure:</strong> Analyzing how galaxies are distributed across the universe and understanding their evolution.</li>
+                </ul>
             </div>
             
-            <!-- Blog Section with the message -->
-            <div class="blog-content">
-                <div class="blogs">
-                    <div class="blog-text">
-                        <h3>Blog Section</h3>
-                        <p>We will be updating this section soon with exciting content! Stay tuned.</p>
-                    </div>
-                </div>
+            <div class="section-heading" style="margin-top: 300px;"> <!-- Added margin-top -->
+                <h2 class="section-title">The Fate of the Universe</h2>
+                <p>
+                    Cosmologists debate the ultimate fate of the universe. Some of the possibilities include:
+                </p>
+                <ul>
+                    <li><strong>Big Freeze:</strong> The universe continues expanding, and galaxies, stars, and planets drift apart, eventually leading to a cold, dark universe.</li>
+                    <li><strong>Big Crunch:</strong> The expansion of the universe slows and reverses, leading to a collapse back into a singularity.</li>
+                    <li><strong>Big Rip:</strong> The expansion of the universe accelerates, tearing galaxies, stars, and even atoms apart.</li>
+                </ul>
+            </div>
+            
+
+
+        </div>
+
+        <div class="col-3">
+            <div class="section-heading">
+                <h2 class="section-title">What is Gravitational Lensing?</h2>
+                <p>
+                    **Gravitational lensing** occurs when the gravitational field of a massive object bends the path of light from distant sources. This effect, predicted by Einstein's General Theory of Relativity, acts like a natural cosmic telescope, magnifying and distorting distant galaxies.
+                
+                    Weak lensing is a powerful tool for cosmologists**, allowing us to probe the distribution of **dark matter** and study the **expansion of the universe**.
+                </p>
+            </div>
+
+            <div class="col-1">
+                <p class="image-caption">A simulated example of gravitational lensing distorting distant galaxies.</p>
+                
+                <video width="100%" controls style="border-radius: 10px; margin-bottom: 100px;">
+                    <source src="gallery/images/project/lensing.webm" type="video/webm">
+                    <p class="image-caption">A simulated example of gravitational lensing distorting distant galaxies.</p>
+                </video>
+                
+            </div>
+            
+
+
+            
+
+            <div class="section-heading">
+                <h2 class="section-title">Cosmic Microwave Background (CMB)</h2>
+                <p>
+                    The CMB is the faint glow left over from the Big Bang, providing a snapshot of the universe when it was just 380,000 years old. It carries information about the early universe, the formation of galaxies, and the distribution of matter.
+                </p>
             </div>
         </div>
+
+        <!-- Expanding to include more topics -->
         
-
-        <!--blog-->
-        <!--
-        <div id="blog">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-         -->
-                <!--
-        <div class="blog-header"> Blogs</span>
-            <span class ="header-caption"> My Latest <span class="color"> blog posts.</span></span></div>
-            <div class="blog-content">
-                 <div class="blogs">
-                     <a href="gallery/gal1.html">
-                     <div class="img">
-                        <img src="images/post-one.jpg" alt="blog-one">
-                        <div class="blog-date">8 May,20</div>
-                     </div>
-                     <div class="blog-text">
-                         <h3>Harleys In Hawaai</h3>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus alias dolore recusandae illum, corrupti quo 
-                             veniam saepe aliquid! Quis voluptates ratione consequuntur vel, perferendis cum provident? Magnam fugiat voluptas
-                              libero.</p>
-                     </div></a>
-                 </div>      
-                 <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-two.jpg" alt="blog-two">
-                        <div class="blog-date">16 Jan,20</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Key To Be Productive</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt maiores, 
-                            recusandae cupiditate ducimus a non tempora, architecto obcaecati eaque ipsum assumenda harum dolorum iusto tenetur
-                             eius eligendi dolor magnam sit!</p>
-                    </div></a>
-                </div>      
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-three.jpg" alt="blog-three">
-                        <div class="blog-date">30 Nov,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Caffeine Addict</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo nostrum impedit 
-                            ipsam perspiciatis ratione sapiente quasi optio reprehenderit, labore consequuntur suscipit cum quas.
-                             Officiis dolorem asperiores, ut necessitatibus quas doloremque?</p>
-                    </div></a>
-                </div>
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-four.jpg" alt="blog-four">
-                        <div class="blog-date">6 Jul,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Web Development</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, veniam ratione quam vitae,
-                             quibusdam explicabo rem debitis velit ipsa repellat, impedit nulla fuga? Amet corporis praesentium quae.
-                              Sed, quibusdam necessitatibus.</p>
-                    </div></a>
-                </div>  
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-five.jpg" alt="blog-five">
-                        <div class="blog-date">1 Jun,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Work From Home</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sunt eum necessitatibus rem 
-                            dignissimos nulla mollitia cumque, provident officiis non vitae? Animi aut doloremque illum, soluta hic minus 
-                            sint explicabo..</p>
-                    </div></a>
-                </div>  
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-six.jpg" alt="blog-six">
-                        <div class="blog-date">28 Feb,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Business Trip</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tempora dolorum fuga ratione, unde, 
-                            ex quaerat iste numquam nemo nihil nobis rem sint quia recusandae dignissimos quos ut rerum nam.</p>
-                    </div></a>
-                </div>        
-            </div>
-        -->
-              
-        </div>
-        <!--blog end-->
-
-        
-
-        <!--contact-->
-        <div id="contact">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-             <div class="contact-header">Contact <span class="color"> Me</span>
-            <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div></div>
-            <div class="contact-content">
-                <!--Contact form-->
-                <!--Contact form-->
-                <div class="contact-form">
-                    <div class="form-header">
-                        Message Me
-                    </div>
-                    <form id="myForm" action="/sendMail" method="POST">
-                        <div class="input-line">
-                            <input id="name" name="name" type="text" placeholder="Name" class="input-name" required>
-                            <input id="email" name="email" type="email" placeholder="Email" class="input-name" required>
-                        </div>
-                        <input type="text" id="subject" name="subject" placeholder="Subject" class="input-subject" required>
-                        <textarea id="body" name="message" class="input-textarea" placeholder="Message" required></textarea>
-                        <button type="submit" id="submit">Submit</button>
-                        <div id="loading" style="display:none; margin-top:10px;">Sending...</div> <!-- Loading indicator -->
-                    </form>
-                    <script>
-                        document.getElementById("myForm").addEventListener("submit", async (e) => {
-                            e.preventDefault();
-
-                            const submitButton = document.getElementById("submit");
-                            const loadingIndicator = document.getElementById("loading");
-
-                            // Show loading animation
-                            submitButton.disabled = true; // Disable the button
-                            loadingIndicator.style.display = 'block';
-
-                            const name = document.getElementById("name").value;
-                            const email = document.getElementById("email").value;
-                            const subject = document.getElementById("subject").value;
-                            const body = document.getElementById("body").value;
-
-                            try {
-                                const response = await fetch('http://localhost:3000/send', {
-                                    method: "POST",
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({ name, email, subject, message: body }),
-                                });
-
-                                const result = await response.json();
-
-                                if (response.ok) {
-                                    alert("Message sent successfully!");
-                                    // Optionally clear the form
-                                    document.getElementById("myForm").reset();
-                                } else {
-                                    alert("Failed to send message. Please try again.");
-                                }
-                            } catch (error) {
-                                console.error("Error:", error);
-                                alert("An error occurred. Please try again.");
-                            } finally {
-                                // Reset UI
-                                submitButton.disabled = false;
-                                loadingIndicator.style.display = 'none';
-                            }
-                        });
-                    </script>
-                </div>
-                <!--Contact form-->
-                <!--Contact information-->
-                 <div class="contact-info">
-                    <div class="contact-info-header">
-                        Contact Info
-                    </div>
-                    <div class="contact-info-content">
-                    <div class="contect-info-content-line">
-                        <img src="./images/icon-name.png" class="icon" alt="name-icon">
-                        <div class="contact-info-icon-text">
-                            <h6>Name</h6>
-                            <p>Supriyo Saha</p>
-                      </div>
-                    </div>
-                    <div class="contect-info-content-line">
-                      <img src="./images/icon-location.png" class="icon" alt="location-icon">
-                      <div class="contact-info-icon-text">
-                          <h6>Location</h6>
-                          <p> Mumbai, INDIA</p>
-                    </div>
-                  </div>
-                  <div class="contect-info-content-line">
-                      <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
-                      <div class="contact-info-icon-text">
-                          <h6>Call</h6>
-                          <p></p>
-                    </div>
-                  </div>
-                  
-                  <div class="contect-info-content-line">
-                      <img src="./images/icon-email.png" class="icon" alt="email-icon">
-                      <div class="contact-info-icon-text">
-                          <h6>Email</h6>
-                          <p>supriyo.saha@tifr.res.in</p>
-                    </div>
-                  </div>
-                    </div>
-                <!--Contact information end-->
-               </div>
-            </div>
-                        
-         </div>
-            <!--contact end-->
-
-
-
-
-
-
-
-
-
-        <!--gallery-->
-            <!--blog-->
-            <div id="gallery">
-                <div class="color-changer">
-                    <div class="color-panel">
-                        <img src="images/gear.png" alt="">
-                    </div>
-                    <div class="color-selector">
-                        <div class="heading">Custom Colors</div>
-                        <div class="colors">
-                            <ul >
-                            <li>
-                                <a href="#0" class="color-red " title="color-red"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-blue" title="color-blue"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-orange" title="color-orange"></a>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-            <div class="blog-header"> Gallery</span>
-                <span class ="header-caption"> My Memorable <span class="color"> moments.</span></span></div>
-                <div class="blog-content">
-                     <div class="blogs">
-                         <a href="gallery/gal_fos.html">
-                         <div class="img">
-                            <img src="images/fos23.jpeg" alt="blog-one">
-                            <div class="blog-date">8 May,20</div>
-                         </div>
-                         <div class="blog-text">
-                             <h3>Frontier of Science ,2023</h3>
-                             <p>Science Outreach.</p>
-                         </div></a>
-                     </div>      
-                    
-
-                        <div class="blogs">
-                            <a href="gallery/gal1.html">
-                            <div class="img">
-                                <img src="images/ml4_hep.jpg" alt="blog-two">
-                                <div class="blog-date">July,2024</div>
-                            </div>
-                            <div class="blog-text">
-                                <h3>Machine Learning school in iop </h3>
-                                <p>It was one of the best school experiences I’ve ever had.
-                                     I will never forget those amazing moments with my friends. The all-night Mafia games before the presentation day were so much fun.
-                                      Laltu Da became the Sigma, We spent every day from 8 a.m. to 8 p.m. learning and creating memories. 
-                                      Then, every night, we would gather and play games until morning. It was a wonderful experience that I will always treasure.
-                                </p>
-                            </div></a>
-                    </div>      
-                    <div class="blogs">
-                        <a href="#">
-                        <div class="img">
-                            <img src="images/clg_mem.jpg" alt="blog-two">
-                            <div class="blog-date">16 Jan,20</div>
-                        </div>
-                        <div class="blog-text">
-                            <h3>College Memory</h3>
-                            <p>The bestt time of my life</p>
-                        </div></a>
-                    </div>  
-                    <div class="blogs">
-                        <a href="gallery/gal_icts.html">
-                        <div class="img">
-                            <img src="images/icts2.jpeg" alt="blog-four">
-                            <div class="blog-date">October ,2025</div>
-                        </div>
-                        <div class="blog-text">
-                            <h3>IAGRG School ICTS</h3>
-                            <p>I enjoyed there a lot. I will never forget the experience of cycling.Best
-                                 cycling experience in my life.</p>
-                        </div></a>
-                    </div>  
-                    <!-- 
-                    <div class="blogs">
-                        <a href="#">
-                        <div class="img">
-                            <img src="images/post-five.jpg" alt="blog-five">
-                            <div class="blog-date">1 Jun,19</div>
-                        </div>
-                        <div class="blog-text">
-                            <h3>Work From Home</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sunt eum necessitatibus rem 
-                                dignissimos nulla mollitia cumque, provident officiis non vitae? Animi aut doloremque illum, soluta hic minus 
-                                sint explicabo..</p>
-                        </div></a>
-                    </div>  
-                    <div class="blogs">
-                        <a href="#">
-                        <div class="img">
-                            <img src="images/post-six.jpg" alt="blog-six">
-                            <div class="blog-date">28 Feb,19</div>
-                        </div>
-                        <div class="blog-text">
-                            <h3>Business Trip</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tempora dolorum fuga ratione, unde, 
-                                ex quaerat iste numquam nemo nihil nobis rem sint quia recusandae dignissimos quos ut rerum nam.</p>
-                        </div></a>
-                    </div>  
-                    -->   
-                </div>
-                   
-            </div>
-            <!--gallery end-->
-
 
     </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!--particles script-->
-    <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-    </script>
+</div>
+<!--End of Content Section-->
+
+        <!--End of Content Section-->
+
+        <!--Testimonials-->
+        <aside id="testimonials" class="scrollto text-center" data-enllax-ratio=".2">
+
+            <div class="row clearfix">
+                <div class="section-heading">
+                    <h3>Projects</h3>
+        <h2 class="section-title">My Research & Technical Work</h2>
+                </div>
+            
+            
+
+                <blockquote class="col-3 testimonial classic">
+                    <img src="gallery/images/project/pic1.jpeg" alt="proj 1"/>
+                    <h4><a href="#">Mass Map Reconstruction by Weak Gravitational Lensing</a></h4>
+                    <q>This project focuses on generating mass maps through weak gravitational lensing techniques, leveraging data from galaxy surveys to study dark matter distribution and cosmic structure.
+                    </q>
+                    <footer>July 2024- Jan 2025 </footer>
+                    <a href="pdf/Weak_Gravitational_Lensing (2).pdf" class="button">Read More</a>
+                </blockquote>
+
+                <blockquote class="col-3 testimonial classic">
+                    <img src="gallery/images/project/pic2.png" alt="proj 2"/>
+                    <h4><a href="#">2-Way Traffic Navigation System Using Arduino</a></h4>
+                    <q>TThis project utilizes Arduino and sensor technology to build a smart traffic management system capable of controlling two-way traffic flow in real-time based on vehicle detection and road conditions.
+                     </q>
+                    <footer>March 2022 </footer>
+                    <a href="html/project-detais.html" class="button">Read More</a>
+                </blockquote>
+
+                <blockquote class="col-3 testimonial classic">
+                    <img src="gallery/images/project/pic3.png" alt="proj 2"/>
+                    <h4><a href="#">Aerodynamics of Frisbee</a></h4>
+                    <q>This research analyzes the aerodynamics of a Frisbee, studying its flight stability, lift, drag forces, and how factors like spin, wind, and shape influence its trajectory and performance.
+                    </q>
+                    <footer>July 2023 </footer>
+                    <a href="pdf/Aerodynamics_of_firsbee.pdf" class="button">Read More</a>
+                </blockquote>
+
+                
+
+
+            
+                
+            </div>
+            
+
+        </aside>
+        
+
+        
+
+        
+
+        <section id="clients" class="scrollto clearfix">
+            
+            <div class="row clearfix">
+                <div class="section-heading">
+                    <h2 class="section-title">GALLERY</h2>
+                    <p class="section-subtitle">
+                        Explore the moments, projects, and experiences that define our journey. From research milestones to creative events, this gallery captures the highlights of our work.
+                    </p>
+                
+                </div>
+
+
+                <!--End of Clients/gallery-->
+                <aside id="" class="row text-center scrollto clearfix" data-featherlight-gallery
+                data-featherlight-filter="a">
+                
+                <a href="images/gallery-images/gallery-image-1.jpg" data-featherlight="image" class="col-3 wow fadeIn"
+                    data-wow-delay="0.1s"><img src="images/gallery-images/gallery-image-1.jpg" alt="Landing Page"/></a>
+                <a href="images/gallery-images/gallery-image-2.jpg" data-featherlight="image" class="col-3 wow fadeIn"
+                    data-wow-delay="0.3s"><img src="images/gallery-images/gallery-image-2.jpg" alt="Landing Page"/></a>
+                <a href="images/gallery-images/gallery-image-3.jpg" data-featherlight="image" class="col-3 wow fadeIn"
+                    data-wow-delay="0.5s"><img src="images/gallery-images/gallery-image-3.jpg" alt="Landing Page"/></a>
+                <a href="images/gallery-images/gallery-image-4.jpg" data-featherlight="image" class="col-3 wow fadeIn"
+                    data-wow-delay="1.1s"><img src="images/gallery-images/gallery-image-4.jpg" alt="Landing Page"/></a>
+                <a href="images/gallery-images/gallery-image-5.jpg" data-featherlight="image" class="col-3 wow fadeIn"
+                    data-wow-delay="0.9s"><img src="images/gallery-images/gallery-image-5.jpg" alt="Landing Page"/></a>
+                <a href="images/gallery-images/gallery-image-6.jpg" data-featherlight="image" class="col-3 wow fadeIn"
+                    data-wow-delay="0.7s"><img src="images/gallery-images/gallery-image-6.jpg" alt="Landing Page"/></a>
+
+                </aside>
+
+
+                <div class="col-3">
+
+                    <div class="section-heading">
+                        <h3>ALBUMS</h3>
+                        <h2 class="section-title">A Journey Through My Memories</h2>
+                        <p class="section-subtitle">
+                            From the moments spent in classrooms to travels and adventures, this gallery captures memories that are close to my heart. These images reflect my experiences, the people I've met, and the places that have shaped me.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-2-3">
+
+                   
+                    <a href="gallery/gal1.html" class="col-3">
+                        <img src="images/ml4_hep.jpg" alt="Company"/>
+                        <div class="client-overlay"><span>Machine Learning school in iop</span></div>
+                    </a>
+                    <a href="gallery/gal_icts.html" class="col-3">
+                        <img src="images/icts2.jpeg" alt="Company"/>
+                        <div class="client-overlay"><span>IAGRG School ICTS
+                            <p>Some memories I want to delete from my life.</p></span></div>
+                    </a>
+
+                    <a href="gallery/gal_fos.html" class="col-3">
+                        <img src="images/fos23.jpeg" alt="Company"/>
+                        <div class="client-overlay"><span>Frontier of Science ,2023
+                            <p>Science Outreach.</p></span></div>
+                    </a>
+
+                    <a href="#" class="col-3">
+                        <img src="images/clg_mem.jpg" alt="Company"/>
+                        <div class="client-overlay"><span>College Memory
+                            <p>The bestt time of my life</p>
+                        </span></div>
+                    </a>
+                
+
+                </div>
+
+            </div>
+        </section>
+
+     
+
+   
+        
+        
+        <!--End of Testimonials-->        
+
+        <!--Pricing Tables-->
+        <section id="pricing" class="secondary-color text-center scrollto clearfix ">
+            <div class="row clearfix">
+
+                <div class="section-heading">
+                    <h3>CONTACT</h3>
+                    <h2 class="section-title">Feel free to message me</h2>
+                </div>
+
+                
+                <!--End Pricing Block-->
+
+                
+            <div class="contact-info">
+                <div class="contact-info-header">
+                    Contact Info
+                </div>
+                <div class="contact-info-content">
+                <div class="contect-info-content-line">
+                    <img src="./images/icon-name.png" class="icon" alt="name-icon">
+                    <div class="contact-info-icon-text">                        
+                        <h6> <strong style="color: white;">Name</strong></h6>
+                        <p>Supriyo Saha</p>
+                  </div>
+                </div>
+                <div class="contect-info-content-line">
+                  <img src="./images/icon-location.png" class="icon" alt="location-icon">
+                  <div class="contact-info-icon-text">
+                    <strong style="color: white;">Location</strong>
+                      <p> Mumbai, INDIA</p>
+                </div>
+              </div>
+              <div class="contect-info-content-line">
+                <img src="./images/icon-email.png" class="icon" alt="email-icon">
+                <div class="contact-info-icon-text">
+                    <h6><strong style="color: white;">Email</strong></h6>
+                    <p>supriyo.saha@tifr.res.in</p>
+              </div>
+            </div>
+              <div class="contect-info-content-line">
+                  <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
+                  <div class="contact-info-icon-text">
+                      <h6><strong style="color: white;">call</strong></h6>
+                      <p></p>
+                </div>
+              </div>
+              
+              
+                </div>
+            <!--Contact information end-->
+           
+        </div>
+
+        </section>
+        <!--End of Pricing Tables-->
+
+    </main>
+    <!--End Main Content Area-->
+
+
+    <!--Footer-->
+    <footer id="landing-footer" class="clearfix">
+        <div class="row clearfix">
+
+            <p id="copyright" class="col-2">Never loose hopes </p>
+
+            <!--Social Icons in Footer-->
+            <ul class="col-2 social-icons">
+                <li>
+                    <a target="_blank" title="Facebook" href="https://www.facebook.com/spriyosaha">
+                        <i class="fa fa-facebook fa-1x"></i><span>Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" title="GitHub" href="https://github.com/Supriyosaha1">
+                        <i class="fa fa-github fa-1x"></i><span>GitHub</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/supriyosaha1">
+                        <i class="fa fa-linkedin fa-1x"></i><span>LinkedIn</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a target="_blank" title="Instagram" href="https://www.instagram.com/_stellar_saha">
+                        <i class="fa fa-instagram fa-1x"></i><span>Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" title="Email" href="mailto:supriyo.saha@tifr.res.in">
+                        <i class="fa fa-envelope fa-1x"></i><span>Email</span>
+                    </a>
+                </li>
+                <li>
+                    <a title="Call" href="facetime:+91******8988">
+                        <i class="fa fa-phone fa-1x"></i><span>Call</span>
+                    </a>
+                </li>
+            </ul>
+            <!--End of Social Icons in Footer-->
+        </div>
+    </footer>
+    <!--End of Footer-->
+
+</div>
+
+<!-- Include JavaScript resources -->
+<script src="js/jquery.1.8.3.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/featherlight.min.js"></script>
+<script src="js/featherlight.gallery.min.js"></script>
+<script src="js/jquery.enllax.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.stickyNavbar.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/images-loaded.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+<script src="js/site.js"></script>
+
 
 </body>
 </html>
-
-
-
-
