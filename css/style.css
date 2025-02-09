@@ -2777,3 +2777,11 @@ form button:hover{
     font-size: 14px;
     opacity: .7;
 }
+
+
+
+.cracked-border {
+    border: 10px solid transparent;
+    border-image: url('gallery/images/crac.png') 30 stretch; /* Replace with your cracked border image */
+    border-radius: 50px; /* Optional: rounds the corners */
+}
