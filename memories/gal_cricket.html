@@ -176,25 +176,26 @@
 </aside>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    let gallery = document.getElementById("gallery");
+    document.addEventListener("DOMContentLoaded", function() {
+        let gallery = document.getElementById("gallery");
     
-    for (let i = 4; i <= 66; i++) { // Ensure the loop runs from 1 to 83
-        let a = document.createElement("a");
-        a.href = `images/TPL_season_3/im${i}.jpg`;
-        a.setAttribute("data-featherlight", "image");
-        a.className = "col-3 wow fadeIn";
-        a.setAttribute("data-wow-delay", "0.1s");
-
-        let img = document.createElement("img");
-        img.src = `images/TPL_season_3/im${i}.jpg`;
-        img.alt = `Gallery Image ${i}`;
-
-        a.appendChild(img);
-        gallery.appendChild(a);
-    }
-});
-</script>
+        for (let i = 9; i <= 66; i++) {
+            let a = document.createElement("a");
+            a.href = `images/TPL_season_3/im${i}.JPG`;
+            a.setAttribute("data-featherlight", "image");
+            a.className = "col-3 wow fadeIn";
+            a.setAttribute("data-wow-delay", "0.1s");
+    
+            let img = document.createElement("img");
+            img.src = `images/TPL_season_3/im${i}.JPG`;
+            img.alt = `Gallery Image ${i}`;
+            img.loading = "lazy"; // Lazy load images
+    
+            a.appendChild(img);
+            gallery.appendChild(a);
+        }
+    });
+    </script>
 <!-- End of Gallery -->
 
 
