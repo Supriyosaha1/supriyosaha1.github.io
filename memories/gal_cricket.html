@@ -171,29 +171,30 @@
 
 
 <!-- Gallery -->
-<aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery data-featherlight-filter="a">
-    <a href="images/TPL_season_3/im4.JPG" data-featherlight="image" class="col-3 wow fadeIn" data-wow-delay="0.1s">
-        <img src="images/TPL_season_3/im4.JPG" alt="Gallery Image 4"/>
-    </a>
-    <a href="images/TPL_season_3/im5.JPG" data-featherlight="image" class="col-3 wow fadeIn" data-wow-delay="0.1s">
-        <img src="images/TPL_season_3/im5.JPG" alt="Gallery Image 5"/>
-    </a>
-    <a href="images/TPL_season_3/im6.JPG" data-featherlight="image" class="col-3 wow fadeIn" data-wow-delay="0.1s">
-        <img src="images/TPL_season_3/im6.JPG" alt="Gallery Image 6"/>
-    </a>
-    <a href="images/TPL_season_3/im7.JPG" data-featherlight="image" class="col-3 wow fadeIn" data-wow-delay="0.1s">
-        <img src="images/TPL_season_3/im7.JPG" alt="Gallery Image 7"/>
-    </a>
-    <a href="images/TPL_season_3/im8.JPG" data-featherlight="image" class="col-3 wow fadeIn" data-wow-delay="0.1s">
-        <img src="images/TPL_season_3/im8.JPG" alt="Gallery Image 8"/>
-    </a>
-    <!-- Adding all images up to im66.JPG -->
-    % for i in range(9, 67): %
-    <a href="images/TPL_season_3/im{{ i }}.JPG" data-featherlight="image" class="col-3 wow fadeIn" data-wow-delay="0.1s">
-        <img src="images/TPL_season_3/im{{ i }}.JPG" alt="Gallery Image {{ i }}"/>
-    </a>
-    % endfor %
+<aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery
+ data-featherlight-filter="a">
 </aside>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let gallery = document.getElementById("gallery");
+    
+    for (let i = 4; i <= 10; i++) { // Ensure the loop runs from 1 to 83
+        let a = document.createElement("a");
+        a.href = 'images/TPL_season_3/im${i}.JPG';
+        a.setAttribute("data-featherlight", "image");
+        a.className = "col-3 wow fadeIn";
+        a.setAttribute("data-wow-delay", "0.1s");
+
+        let img = document.createElement("img");
+        img.src = 'images/TPL_season_3/im${i}.JPG';
+        img.alt = 'Gallery Image ${i}';
+
+        a.appendChild(img);
+        gallery.appendChild(a);
+    }
+});
+</script>
 <!-- End of Gallery -->
 
 
