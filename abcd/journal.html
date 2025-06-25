@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story Journey</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Darker background */
+            display: flex;
+            flex-direction: column; /* Allow content to stack vertically */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px; /* Add some padding for smaller screens */
+            box-sizing: border-box;
+        }
+        /* Custom scrollbar for story content in modal */
+        .modal-content-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content-container::-webkit-scrollbar-track {
+            background: #2d3748; /* Darker scrollbar track */
+            border-radius: 10px;
+        }
+        .modal-content-container::-webkit-scrollbar-thumb {
+            background: #4a5568; /* Darker scrollbar thumb */
+            border-radius: 10px;
+        }
+        .modal-content-container::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+
+        /* Styles for story card background images and overlays */
+        .story-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0.75rem; /* Match card border-radius */
+            z-index: -1; /* Place behind content */
+            filter: brightness(0.4); /* Even darker image for better text readability on dark theme */
+            transition: filter 0.3s ease;
+        }
+
+        .story-card:hover .story-card-bg {
+            filter: brightness(0.6); /* Slightly brighten on hover */
+        }
+
+        .story-card-content {
+            position: relative; /* Ensure content is above the background */
+            z-index: 1;
+            color: white; /* Text color for content over image */
+        }
+
+        /* Styles for modal background image and overlay */
+        .modal-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0.75rem; /* Match modal border-radius */
+            z-index: -1; /* Place behind content */
+            filter: brightness(0.4); /* Very dark overlay for high text contrast */
+        }
+
+        .modal-content-wrapper {
+            position: relative; /* Container for content and background image */
+            /* Ensure the content wrapper itself has a background color to fallback if image fails */
+            background-color: #1a202c; /* Fallback dark background */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800">
+
+    <!-- Password Protection Section -->
+    <div id="password-section" class="bg-gray-800 shadow-xl rounded-xl p-8 max-w-md w-full mx-auto transform transition-all duration-300">
+        
+        <h2 class="text-3xl font-extrabold text-white mb-6 text-center">
+            How did you find it. That means something. 🕵️‍♀️
+        </h2>
+
+        <p class="text-gray-300 text-sm mb-6 text-center italic">
+            I’m genuinely glad you reached here — not everyone does. <br>
+            It’s no accident, and in fact... the key has already been handed to you. <br>
+            Read the first line again — carefully. What did I ask you?
+        </p>
+
+        <div class="mb-4">
+            <label for="password-input" class="block text-gray-300 text-sm font-bold mb-2">Password:</label>
+            <input type="password" id="password-input" class="shadow appearance-none border border-gray-600 bg-gray-700 text-white rounded-lg w-full py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="••••••••">
+        </div>
+
+        <p id="password-error" class="text-red-400 text-sm mb-4 text-center hidden">Incorrect password. Please try again.</p>
+
+        <div class="flex justify-center">
+            <button id="submit-password-btn" class="bg-gradient-to-r from-green-600 to-teal-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-green-300 active:scale-95">
+                Submit
+            </button>
+        </div>
+    </div>
+
+    <!-- Story Viewer Section (Initially Hidden) -->
+    <div id="story-viewer-section" class="max-w-6xl w-full mx-auto my-8 scale-0 opacity-0 absolute">
+        <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-12 text-center leading-tight">
+            Some feelings I couldn’t express, some stories I never told —
+            <span class="text-purple-400">yet</span>
+        </h2>
+
+        <!-- Story Grid Container -->
+        <div id="story-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+            <!-- Story cards will be dynamically inserted here by JavaScript -->
+        </div>
+
+        <!-- See More Button -->
+        <div class="flex justify-center mt-12 mb-8">
+            <button id="see-more-btn" class="bg-gradient-to-r from-purple-600 to-pink-700 text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 active:scale-95">
+                See More Stories
+            </button>
+        </div>
+    </div>
+
+    <!-- Full Story Modal -->
+    <div id="story-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <!-- Added a wrapper div for content and background image -->
+        <div id="modal-content-wrapper" class="modal-content-wrapper bg-gray-800 rounded-xl shadow-2xl p-8 max-w-3xl w-11/12 mx-auto transform scale-95 opacity-0 transition-all duration-300 relative">
+            <div id="modal-bg-dynamic" class="modal-bg-image"></div> <!-- Dynamic background image for modal -->
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold transition-transform hover:rotate-90 duration-300 z-10">
+                &times;
+            </button>
+            <h2 id="modal-story-title" class="text-3xl md:text-4xl font-extrabold text-white mb-6 text-center leading-tight relative z-10"></h2>
+            <div id="modal-story-content" class="modal-content-container text-lg text-gray-200 leading-relaxed mb-8 max-h-[70vh] overflow-y-auto pr-4 relative z-10">
+                <!-- Full story content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Array of story objects. Each object has a title, a brief overview, an array of paragraphs for its full content,
+        // an 'imageUrl' for the background of its grid card, and a 'modalBgImageUrl' for its modal background.
+        const stories = [
+            {
+                title: "Goodbye My Ira",
+                overview: "Final goodbye — it’s me finally accepting that it’s over. I met her one last time, and I felt everything… but I knew I had to let go.",
+                content: [
+                    "23rd June, Durgapur.",
+                    "Maybe I won’t meet her again. Today marks almost five months since we parted ways, and today we met — perhaps for the last time.",
+                    "We sat together at the same old place, the one where I used to visit her, where so many memories live. She came, and we were there again — the same place, but everything felt different.",
+                    "I wanted to say sorry. I wanted to hug her tightly. I wanted to kiss her forehead and say, 'Let’s try again, please… just one more time.'",
+                    "But I couldn’t. I don’t know why. The feelings inside me were so unfamiliar, so heavy — I’ve never felt like that before.",
+                    "I just wanted to say: You deserve better than me.",
+                    "Not someone selfish like I’ve been. You stood by me through everything, but I couldn’t do the same for you when you needed me most.",
+                    "You compromised so much. You changed, tried to become the version I wanted — yet I never really showed you what I needed.",
+                    "That wasn’t your fault. It was mine. I was lucky to have you.",
+                    "Every day until today, I held onto a small hope — the thought of starting again. But now… I realize it’s time to let go.",
+                    "A 3.5-year journey, so full of love, ended — mostly because of me, because I failed to communicate, to express, to understand. And I’m trying to be better now.",
+                    "Mumbai changed me. I’m working hard to become the version of myself that I was in my graduation days — someone you once admired.",
+                    "Thank you for everything, Ira. Truly.",
+                    "I loved you. For 3.5 years, I really did. And until today, a tiny spark of hope kept me going. But it’s time to stop living in this imaginary world I keep creating inside my head. It’s time to accept that this is goodbye.",
+                    "You deserve happiness, peace, and success. Focus on your career. Go chase your dreams. I’ll be one of the happiest people cheering for you, right after your parents.",
+                    "Tonight, I’m deleting all the photos of you I kept. Not out of anger. Not to forget. Just to finally let go.",
+                    "Goodbye, Ira. Take care. Be happy — always."
+                ],
+                imageUrl: "photos/first_pic.png", 
+                modalBgImageUrl: " photos/us.jpeg" 
+            },
+            
+
+        
+            {
+                title: "25 June 2025,",
+                overview: "Bet with Abinash with compatibility partner",
+                content: [
+                    " I will send this after 10 years — on 25 June 2035.",
+                    ],
+                imageUrl: "https://placehold.co/600x400/D2B48C/FFFFFF?text=Bakery+Goods",
+                modalBgImageUrl: "https://placehold.co/1000x700/F4A460/FFFFFF?text=Dreamy+Pastries" // Sandy Brown for modal
+            }
+            
+        ];
+
+        // Get references to HTML elements
+        const passwordSection = document.getElementById('password-section');
+        const passwordInput = document.getElementById('password-input');
+        const submitPasswordBtn = document.getElementById('submit-password-btn');
+        const passwordError = document.getElementById('password-error');
+        const storyViewerSection = document.getElementById('story-viewer-section');
+        const storyGrid = document.getElementById('story-grid');
+        const storyModal = document.getElementById('story-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalStoryTitle = document.getElementById('modal-story-title');
+        const modalStoryContent = document.getElementById('modal-story-content');
+        const seeMoreBtn = document.getElementById('see-more-btn');
+        // New: Reference to the modal's dynamic background image div
+        const modalBgDynamic = document.getElementById('modal-bg-dynamic');
+        // New: Reference to the modal's content wrapper
+        const modalContentWrapper = document.getElementById('modal-content-wrapper');
+
+
+        const CORRECT_ENCODED_PASSWORD = "SG93IGRpZCB5b3UgZmluZCBpdA=="; // Base64 for "How did you find it"
+
+        // Number of stories to show initially (2 rows * 3 columns = 6 stories)
+        let storiesToShowInitially = 6;
+        let allStoriesDisplayed = false; // Flag to track if all stories are shown
+
+        /**
+         * Shows an error message related to password input.
+         * @param {string} message - The error message to display.
+         */
+        function showPasswordError(message) {
+            passwordError.textContent = message;
+            passwordError.classList.remove('hidden');
+        }
+
+        /**
+         * Hides the password error message.
+         */
+        function hidePasswordError() {
+            passwordError.classList.add('hidden');
+        }
+
+        /**
+         * Handles the password submission.
+         * Checks if the entered password matches the correct password.
+         * If correct, reveals the story viewer. Otherwise, shows an error.
+         */
+        function handlePasswordSubmit() {
+            const enteredPassword = passwordInput.value;
+            // Encode the entered password for comparison
+            const enteredEncodedPassword = btoa(enteredPassword); // Base64 encode
+
+            if (enteredEncodedPassword === CORRECT_ENCODED_PASSWORD) {
+                // Correct password: hide password section and show story viewer
+                passwordSection.classList.add('hidden');
+                passwordSection.classList.remove('transform', 'transition-all', 'duration-300'); // Remove transition classes for immediate hide
+                
+                // Show story viewer section with animation
+                storyViewerSection.classList.remove('scale-0', 'opacity-0', 'absolute');
+                storyViewerSection.classList.add('scale-100', 'opacity-100', 'relative', 'transition-all', 'duration-500', 'ease-out');
+                
+                renderStoryGrid(storiesToShowInitially); // Render initial stories after password is correct
+                // Check if all stories are shown or if there are more stories to show
+                if (stories.length <= storiesToShowInitially) {
+                    seeMoreBtn.classList.add('hidden'); // Hide button if no more stories
+                    allStoriesDisplayed = true;
+                } else {
+                    seeMoreBtn.classList.remove('hidden'); // Ensure button is visible
+                }
+
+            } else {
+                showPasswordError("Incorrect password. Please try again.");
+                passwordInput.value = ''; // Clear the input field
+            }
+        }
+
+        /**
+         * Renders the story cards in the grid.
+         * @param {number} count - The number of stories to render.
+         * Creates a card for each story with its title, overview, and a "Read Full Story" button.
+         */
+        function renderStoryGrid(count) {
+            storyGrid.innerHTML = ''; // Clear existing content
+
+            // Render only up to the specified count
+            for (let i = 0; i < Math.min(count, stories.length); i++) {
+                const story = stories[i];
+                const storyCard = document.createElement('div');
+                storyCard.classList.add('story-card', 'bg-gray-700', 'p-6', 'rounded-xl', 'shadow-md', 'flex', 'flex-col', 'transform', 'transition-all', 'duration-300', 'hover:scale-[1.02]', 'hover:shadow-xl', 'relative', 'overflow-hidden');
+
+                storyCard.innerHTML = `
+                    <div class="story-card-bg" style="background-image: url('${story.imageUrl}');"
+                         onerror="this.style.backgroundImage='url(https://placehold.co/600x400/374151/FFFFFF?text=Image+Error)'; this.onerror=null;"></div>
+                    <div class="story-card-content flex flex-col h-full">
+                        <h3 class="font-bold text-2xl mb-3 leading-tight">${story.title}</h3>
+                        <p class="text-base mb-6 flex-grow text-gray-200">${story.overview}</p>
+                        <button class="read-more-btn bg-gradient-to-r from-blue-500 to-cyan-600 text-white font-semibold py-3 px-6 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 active:scale-95" data-story-index="${i}">
+                            Read Full Story
+                        </button>
+                    </div>
+                `;
+                storyGrid.appendChild(storyCard);
+            }
+
+            // Attach event listeners to all "Read Full Story" buttons after they are created
+            document.querySelectorAll('.read-more-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const storyIndex = parseInt(event.target.dataset.storyIndex);
+                    showStoryModal(storyIndex);
+                });
+            });
+        }
+
+        /**
+         * Displays the full story content in a modal overlay.
+         * @param {number} storyIndex - The index of the story to display.
+         */
+        function showStoryModal(storyIndex) {
+            const story = stories[storyIndex];
+            modalStoryTitle.textContent = story.title;
+            modalStoryContent.innerHTML = ''; // Clear previous content
+
+            story.content.forEach(paragraph => {
+                const p = document.createElement('p');
+                p.textContent = paragraph;
+                p.classList.add('mb-4');
+                modalStoryContent.appendChild(p);
+            });
+
+            // Set modal background image
+            if (story.modalBgImageUrl) {
+                modalBgDynamic.style.backgroundImage = `url('${story.modalBgImageUrl}')`;
+                modalBgDynamic.style.display = 'block'; // Ensure it's visible
+            } else {
+                modalBgDynamic.style.backgroundImage = 'none';
+                modalBgDynamic.style.display = 'none'; // Hide if no image
+            }
+
+            modalStoryContent.scrollTop = 0; // Scroll to top of modal content
+            storyModal.classList.remove('hidden');
+            // Animate modal in
+            setTimeout(() => {
+                modalContentWrapper.classList.remove('scale-95', 'opacity-0');
+                modalContentWrapper.classList.add('scale-100', 'opacity-100');
+            }, 10); // Small delay to ensure display:block applies first
+        }
+
+        /**
+         * Hides the full story modal.
+         */
+        function closeStoryModal() {
+            // Animate modal out
+            modalContentWrapper.classList.remove('scale-100', 'opacity-100');
+            modalContentWrapper.classList.add('scale-95', 'opacity-0');
+            // Hide after animation
+            setTimeout(() => {
+                storyModal.classList.add('hidden');
+            }, 300); // Duration of the transition
+        }
+
+        // Event listener for the modal's close button
+        closeModalBtn.addEventListener('click', closeStoryModal);
+
+        // Event listener for clicking outside the modal content to close it
+        storyModal.addEventListener('click', (event) => {
+            // Check if the click occurred on the modal overlay, not its content wrapper
+            if (event.target === storyModal) {
+                closeStoryModal();
+            }
+        });
+
+        // Event listener for the "See More Stories" button
+        seeMoreBtn.addEventListener('click', () => {
+            if (!allStoriesDisplayed) {
+                renderStoryGrid(stories.length); // Render all stories
+                seeMoreBtn.classList.add('hidden'); // Hide the button
+                allStoriesDisplayed = true;
+            }
+        });
+
+
+        // Add event listeners for password protection
+        submitPasswordBtn.addEventListener('click', handlePasswordSubmit);
+        passwordInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                handlePasswordSubmit();
+            }
+        });
+
+        // Initial state: only password section is visible. Story viewer section is hidden.
+        document.addEventListener('DOMContentLoaded', () => {
+            passwordSection.classList.remove('hidden');
+            storyViewerSection.classList.add('scale-0', 'opacity-0', 'absolute');
+            // Hide see more button initially, will be shown if needed after password
+            seeMoreBtn.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
