@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schools Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Global box-sizing, margin, padding, and font */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Body styling */
+    body {
+      background: #0f0f0f; /* Dark background */
+      color: #fff; /* White text */
+      padding: 20px;
+    }
+    /* Main heading style */
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.5em;
+    }
+    /* Container for event buttons */
+    .event-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    }
+    /* Styling for event buttons */
+    .event-buttons button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      background-color: #1e1e1e; /* Darker background for buttons */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    /* Active button style */
+    .event-buttons button.active {
+      border-bottom: 2px solid #007bff; /* Blue underline for active button */
+      background-color: #333; /* Slightly lighter for active */
+    }
+    /* Button hover effect */
+    .event-buttons button:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
+    /* Description box style */
+    .event-description {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      color: #ccc; /* Lighter grey text */
+      padding: 0 15px; /* Add some padding for better readability on small screens */
+    }
+    /* Gallery grid layout */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    /* Styling for images and video thumbnails in the gallery */
+    .gallery img, .gallery video {
+      width: 100%;
+      height: 200px; /* Fixed height for consistent look */
+      object-fit: cover; /* Ensure media covers the area */
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    /* Media hover effect */
+    .gallery img:hover, .gallery video:hover {
+      transform: scale(1.05);
+    }
+
+    /* Video specific styling for gallery thumbnails */
+    .gallery video {
+        background-color: #000; /* Black background for video areas */
+    }
+
+    /* Load more button container */
+    .load-more-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    /* Load more button styling */
+    .load-more-btn {
+      background-color: #007bff; /* Blue background */
+      color: #ffffff;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Blue shadow */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    /* Load more button hover effect */
+    .load-more-btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+      transform: scale(1.05);
+    }
+    /* Lightbox overlay */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95); /* More opaque background */
+      display: none; /* Hidden by default */
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    /* Lightbox content container (for image/video) */
+    #lightbox-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 80%; /* Adjust as needed for controls */
+        margin-bottom: 20px;
+    }
+    /* Lightbox media styling */
+    .lightbox img, .lightbox video {
+      max-width: 90%;
+      max-height: 100%; /* Use 100% of lightbox-content height */
+      border-radius: 12px;
+      object-fit: contain; /* Ensure the full media is visible */
+      display: none; /* Hidden by default, shown by JS */
+    }
+    /* Lightbox navigation controls */
+    .lightbox .controls {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    /* Lightbox button styling */
+    .lightbox button {
+      background: #007bff; /* Blue buttons */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    /* Lightbox button hover effect */
+    .lightbox button:hover {
+      background-color: #0056b3;
+    }
+    /* Lightbox close button */
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2.5em; /* Larger close button */
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    /* Lightbox close button hover effect */
+    .lightbox-close:hover {
+      color: #ff0000; /* Red on hover */
+    }
+    /* Footer container */
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; /* Allow footer items to wrap */
+      padding: 20px;
+      margin-top: 50px;
+      background: #1a1a1a; /* Darker background for footer */
+      border-radius: 10px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    /* Footer message text */
+    .footer-message {
+      flex: 1;
+      min-width: 250px;
+      text-align: center; /* Center on smaller screens */
+      margin-bottom: 10px; /* Space between message and social icons on smaller screens */
+    }
+    /* Footer link styling */
+    .footer-message a {
+      color: #007bff; /* Blue link */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    /* Social icons container */
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center; /* Center icons on smaller screens */
+      flex: 1;
+      min-width: 250px;
+    }
+    /* Social icon link styling */
+    .social-icons a {
+      color: #ccc;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+    /* Social icon hover effect */
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .event-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+      }
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Smaller grid columns */
+      }
+      .footer-container {
+        flex-direction: column; /* Stack footer content vertically */
+        text-align: center;
+      }
+      .footer-message, .social-icons {
+        margin-bottom: 15px; /* Add space between stacked items */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Schools Gallery</h1>
+
+  <div class="event-buttons">
+    <button id="btn-ml4hep2024" onclick="showEvent('ml4hep2024')">ML4HEP School 2024</button>
+    <button id="btn-icts-iagrg" onclick="showEvent('icts_iagrg_school')">ICTS IAGRG School</button>
+    <button id="btn-icts-ska" onclick="showEvent('icts_ska_school')">ICTS SKA School</button>
+    <!-- Future Schools can be added here -->
+    <!--
+    <button id="btn-new-school" onclick="showEvent('new_school')">New School 20XX</button>
+    -->
+  </div>
+
+  <div id="description" class="event-description"></div>
+
+  <div id="gallery" class="gallery"></div>
+
+  <div class="load-more-container">
+    <button class="load-more-btn" onclick="loadMoreImages()">Load More</button>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div id="lightbox-content">
+        <!-- Lightbox should contain both image and video elements, dynamically shown/hidden -->
+        <img id="lightbox-img" src="" alt="Expanded Media" />
+        <video id="lightbox-video" src="" controls preload="auto"></video>
+    </div>
+    <div class="controls">
+      <button onclick="showPrev()">⟨ Prev</button>
+      <button onclick="showNext()">Next ⟩</button>
+    </div>
+  </div>
+
+  <footer class="footer-container">
+    <div class="footer-message">
+      Learning and growing in science.
+      <span style="margin-left: 8px;">
+        <a href="../../abcd/journal.html" title="More Schools!">Still here? Click then</a>
+      </span>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/spriyosaha" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
+      <a href="https://github.com/Supriyosaha1" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+      <a href="https://in.linkedin.com/in/supriyosaha1" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+      <a href="https://www.instagram.com/_sup.riyo/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="mailto:supriyo.saha@tifr.res.in"><i class="fas fa-envelope"></i>Email</a>
+      <a href="tel:+919876543210"><i class="fas fa-phone"></i>Call</a>
+    </div>
+  </footer>
+
+  <!-- Include your individual image data files BEFORE the main script -->
+  <script src="js/image_data/ml4hep2024_images.js"></script>
+  <script src="js/image_data/icts_iagrg_school_images.js"></script>
+  <!-- Renamed from icts_ska_school_images.js to icts_ska_school_media.js -->
+  <script src="js/image_data/icts_ska_school_media.js"></script>
+  <!-- Future school image data files can be included here -->
+  <!--
+  <script src="js/image_data/new_school_images.js"></script>
+  -->
+
+  <script>
+    // Map event IDs to the global image/media arrays defined in separate files
+    const imagesMap = {
+      ml4hep2024: window.ml4hep2024Images,
+      icts_iagrg_school: window.ictsIagrgSchoolImages,
+      // Updated reference for ICTS SKA School to use the media array
+      icts_ska_school: window.ictsSkaSchoolMedia
+      // Future schools can be added here
+      // new_school: window.newSchoolImages
+    };
+
+    // Descriptions for each school
+    const descriptions = {
+      ml4hep2024: `<div style="font-size: 0.9em; line-height: 1.5; color: #ccc;">
+        <strong style="font-size: 1.1em; color: #fff;">ML4HEP School 2024</strong><br>
+        <span style="color: #aaa;"><em>Venue:</em> Institute of Physics (IOP), Bhubaneswar</span><br>
+        <span style="color: #aaa;"><em>Date:</em> July 1–13, 2024</span><br>
+        A focused training on Machine Learning for High-Energy Physics, featuring deep learning, GNNs, and real-world applications in collider and astro data analysis.
+      </div>`,
+
+      icts_iagrg_school: `<div style="font-size: 0.9em; line-height: 1.5; color: #ccc;">
+        <strong style="font-size: 1.1em; color: #fff;">ICTS–IAGRG School on Gravitation & Cosmology</strong><br>
+        <span style="color: #aaa;"><em>Venue:</em> ICTS-TIFR, Bengaluru</span><br>
+        <span style="color: #aaa;"><em>Date:</em> October 9–20, 2023</span><br>
+        A theoretical deep dive into General Relativity, black holes, neutron stars, and gravitational waves—designed for motivated early researchers.
+      </div>`,
+
+      icts_ska_school: `<div style="font-size: 0.9em; line-height: 1.5; color: #ccc;">
+        <strong style="font-size: 1.1em; color: #fff;">ICTS SKA School 2025</strong><br>
+        <span style="color: #aaa;"><em>Venue:</em> ICTS-TIFR, Bengaluru</span><br>
+        <span style="color: #aaa;"><em>Date:</em> April 14–18, 2025</span><br>
+        Hands-on sessions in radio astronomy and SKA science—from sky modelling and calibration to imaging and simulation, guided by global experts.
+      </div>`
+    };
+
+
+
+    let localImages = []; // Array to hold media (images/videos) for the currently selected event
+    let gallery = document.getElementById('gallery');
+    let descriptionBox = document.getElementById('description');
+    let lightbox = document.getElementById('lightbox');
+    let lightboxImg = document.getElementById('lightbox-img');
+    let lightboxVideo = document.getElementById('lightbox-video'); // New video element
+    let currentIndex = 0; // Current index of the media in lightbox
+    let loadedImages = 0; // Number of media items loaded in the gallery
+    const imagesPerLoad = 8; // Number of media items to load per 'Load More' click
+    let observer; // Intersection Observer for lazy loading
+
+    /**
+     * Sets the active state for the selected event button.
+     * Removes 'active' class from all buttons and adds it to the specified one.
+     * @param {string} eventId - The ID of the button to set as active (e.g., 'ml4hep2024').
+     */
+    function setActiveButton(eventId) {
+      const buttons = document.querySelectorAll('.event-buttons button');
+      buttons.forEach(button => button.classList.remove('active'));
+      const activeButtonElement = document.getElementById(`btn-${eventId}`);
+      if (activeButtonElement) { // Check if the button actually exists
+          activeButtonElement.classList.add('active');
+      }
+    }
+
+    /**
+     * Displays media (images/videos) and description for the selected event.
+     * Resets gallery, loads new media, and updates description.
+     * @param {string} eventId - The ID of the event to display (e.g., 'ml4hep2024').
+     */
+    function showEvent(eventId) {
+      if (imagesMap[eventId]) {
+          localImages = imagesMap[eventId];
+      } else {
+          console.warn(`Media data for event '${eventId}' not found.`);
+          localImages = [];
+      }
+
+      gallery.innerHTML = ''; // Clear current gallery media
+      descriptionBox.innerHTML = descriptions[eventId] || ''; // Update description
+      loadedImages = 0; // Reset loadedImages for the new event
+      setActiveButton(eventId);
+
+      // Determine initial number of media items to load
+      let initialImagesCount = imagesPerLoad; // Default to 8 media items (1 batch)
+
+      // Special handling for ICTS IAGRG School to load 2 rows initially (up to 16 items)
+      if (eventId === 'icts_iagrg_school' && localImages.length > imagesPerLoad) {
+          initialImagesCount = Math.min(localImages.length, imagesPerLoad * 2);
+      }
+      // For any event, if total media items are less than initialImagesCount, load all available
+      if (localImages.length > 0 && localImages.length < initialImagesCount) {
+          initialImagesCount = localImages.length;
+      }
+
+
+      // Load the initial batch of media items by setting src directly
+      const initialBatch = localImages.slice(0, initialImagesCount);
+      initialBatch.forEach((mediaItem, i) => {
+        let mediaElement;
+        // Check if mediaItem is an object (new format) or a string (old format)
+        const isObjectFormat = typeof mediaItem === 'object' && mediaItem !== null && 'type' in mediaItem;
+
+        const src = isObjectFormat ? mediaItem.src : mediaItem;
+        const type = isObjectFormat ? mediaItem.type : 'image'; // Assume image if old format
+
+        if (type === 'video') {
+            mediaElement = document.createElement('video');
+            mediaElement.controls = true; // Show video controls
+            mediaElement.preload = 'metadata'; // preload metadata to get dimensions/poster quicker
+            if (isObjectFormat && mediaItem.poster) {
+                mediaElement.poster = mediaItem.poster; // Set poster image if available
+            }
+        } else { // Default to image
+            mediaElement = document.createElement('img');
+        }
+        // Set src directly for immediate loading
+        mediaElement.src = src;
+        mediaElement.alt = `School Media ${i + 1}`;
+        mediaElement.addEventListener('click', () => openLightbox(i)); // Index for the full localImages array
+        // No 'lazy-media' class or observer.observe for initial elements as they are loaded directly
+        gallery.appendChild(mediaElement);
+      });
+      loadedImages = initialImagesCount; // Update loadedImages count
+
+      // Manage 'Load More' button visibility
+      const loadMoreBtnContainer = document.querySelector('.load-more-container');
+      if (loadedImages >= localImages.length || localImages.length === 0) {
+        loadMoreBtnContainer.style.display = 'none'; // Hide if all loaded or no media
+      } else {
+        loadMoreBtnContainer.style.display = 'block'; // Show if more media to load
+      }
+
+      // If no media for the event, display a placeholder in the gallery
+      if (localImages.length === 0) {
+        const placeholderImg = document.createElement('img');
+        placeholderImg.src = "https://placehold.co/600x400/333/FFF?text=No+Media+Available";
+        placeholderImg.alt = "No media available";
+        placeholderImg.style.cursor = 'default';
+        placeholderImg.style.transform = 'none';
+        gallery.appendChild(placeholderImg);
+      }
+    }
+
+    /**
+     * Loads more media items into the gallery using lazy loading.
+     * Appends a batch of media items from where it left off.
+     */
+    function loadMoreImages() {
+      // Load media items from the current 'loadedImages' position
+      const nextBatch = localImages.slice(loadedImages, loadedImages + imagesPerLoad);
+      nextBatch.forEach((mediaItem, i) => {
+        let mediaElement;
+        // Check if mediaItem is an object (new format) or a string (old format)
+        const isObjectFormat = typeof mediaItem === 'object' && mediaItem !== null && 'type' in mediaItem;
+
+        const src = isObjectFormat ? mediaItem.src : mediaItem;
+        const type = isObjectFormat ? mediaItem.type : 'image'; // Assume image if old format
+
+        if (type === 'video') {
+            mediaElement = document.createElement('video');
+            mediaElement.controls = true;
+            mediaElement.preload = 'none';
+            if (isObjectFormat && mediaItem.poster) {
+                mediaElement.poster = mediaItem.poster;
+            }
+        } else {
+            mediaElement = document.createElement('img');
+        }
+        mediaElement.dataset.src = src; // Still use data-src for truly lazy loaded images
+        mediaElement.alt = `School Media ${loadedImages + i + 1}`;
+        mediaElement.addEventListener('click', () => openLightbox(loadedImages + i));
+        mediaElement.classList.add('lazy-media'); // Add lazy-media class for images loaded via this function
+        gallery.appendChild(mediaElement);
+        observer.observe(mediaElement); // Observe only for images loaded *after* initial batch
+      });
+      loadedImages += imagesPerLoad; // Increment loadedImages by batch size
+
+      // Update 'Load More' button visibility after loading more
+      const loadMoreBtnContainer = document.querySelector('.load-more-container');
+      if (loadedImages >= localImages.length) {
+        loadMoreBtnContainer.style.display = 'none';
+      } else {
+        loadMoreBtnContainer.style.display = 'block';
+      }
+    }
+
+    /**
+     * Opens the lightbox and displays the selected media item.
+     * @param {number} index - The index of the media item to display in the lightbox.
+     */
+    function openLightbox(index) {
+      if (localImages.length === 0) return; // Prevent lightbox if no media
+
+      currentIndex = index;
+      const mediaItem = localImages[currentIndex];
+
+      // Hide both elements first
+      lightboxImg.style.display = 'none';
+      lightboxVideo.style.display = 'none';
+      lightboxVideo.pause(); // Pause any currently playing video
+
+      // Check if mediaItem is an object (new format) or a string (old format)
+      const isObjectFormat = typeof mediaItem === 'object' && mediaItem !== null && 'type' in mediaItem;
+      const src = isObjectFormat ? mediaItem.src : mediaItem;
+      const type = isObjectFormat ? mediaItem.type : 'image'; // Assume image if old format
+
+      if (type === 'video') {
+          lightboxVideo.src = src;
+          lightboxVideo.style.display = 'block';
+          lightboxVideo.load(); // Load the video metadata
+          lightboxVideo.play(); // Auto-play the video
+      } else { // Default to image
+          lightboxImg.src = src;
+          lightboxImg.style.display = 'block';
+      }
+
+      lightbox.style.display = 'flex'; // Show the lightbox
+    }
+
+    /**
+     * Closes the lightbox.
+     */
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+      lightboxVideo.pause(); // Pause video when lightbox closes
+      lightboxVideo.currentTime = 0; // Reset video to beginning
+    }
+
+    /**
+     * Shows the next media item in the lightbox.
+     * Cycles through media when the end is reached.
+     */
+    function showNext() {
+      if (localImages.length === 0) return;
+      lightboxVideo.pause(); // Pause current video before changing
+      lightboxVideo.currentTime = 0; // Reset current video
+      currentIndex = (currentIndex + 1) % localImages.length;
+      openLightbox(currentIndex); // Re-use openLightbox to handle type
+    }
+
+    /**
+     * Shows the previous media item in the lightbox.
+     * Cycles through media when the beginning is reached.
+     */
+    function showPrev() {
+      if (localImages.length === 0) return;
+      lightboxVideo.pause(); // Pause current video before changing
+      lightboxVideo.currentTime = 0; // Reset current video
+      currentIndex = (currentIndex - 1 + localImages.length) % localImages.length;
+      openLightbox(currentIndex); // Re-use openLightbox to handle type
+    }
+
+    // Initialize Intersection Observer and show default event on DOM content loaded
+    window.addEventListener('DOMContentLoaded', () => {
+      observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const mediaElement = entry.target;
+            // Only set src if it's not already set (e.g., for elements loaded by loadMoreImages)
+            // and if it actually has a data-src (meaning it's a lazy-loaded element)
+            if (mediaElement.dataset.src && !mediaElement.src) {
+                mediaElement.src = mediaElement.dataset.src;
+                mediaElement.removeAttribute('data-src');
+            }
+            observer.unobserve(mediaElement);
+          }
+        });
+      });
+      showEvent('ml4hep2024'); // Show the first school by default
+    });
+  </script>
+</body>
+</html>
